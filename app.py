@@ -2,12 +2,12 @@ import re
 
 with open("followers.txt") as f:
     text = f.read()
-followers = [f[0] for f in re.findall(r'title="(.*?)" href="\/(\1)\/"', text)]
+followers = re.findall(r'title="(.*?)" href="\/\1\/"', text)
 print(f"Got {len(followers)} followers!")
 
 with open("following.txt") as f:
     text = f.read()
-following = [f[0] for f in re.findall(r'title="(.*?)" href="\/(\1)\/"', text)]
+following = re.findall(r'title="(.*?)" href="\/\1\/"', text)
 print(f"Got {len(following)} following!")
 
 print()
